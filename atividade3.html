@@ -6,6 +6,39 @@
         <title>Document</title>
     </head>
     <body>
-        
+        <h1>The element Object</h1>
+        <h2>The appendChild() Method</h2>
+        <ul id="lista_de_comidas">
+            <li>Coffee</li>
+            <li>Tea</li>
+        </ul>
+        <form>
+            <input type="text" id="novo_elemento">
+            <br><br>
+            <input type="radio" name="cor" id="vermelho" value="red" checked>
+            <label for="vermelho">Vermelho</label>
+            <input type="radio" name="cor" id="verde" value="green">
+            <label for="verde">Verde</label>
+            <input type="radio" name="cor" id="azul" value="blue">
+            <label for="azul">Azul</label>
+        </form>
+        <p>Click "Append" to append an item to the end of the list:</p>
+        <button id="botao">Append</button>
+        <script>
+            let b = document.getElementById("botao")
+            b.addEventListener("click",() => {
+                let lista = document.getElementById("lista_de_comidas");
+                
+                let novo_elemento = document.getElementById("novo_elemento").value
+                let cor = document.querySelector('input[name="cor"]:checked').value
+
+                let node = document.createElement("li");
+                let textnode = document.createTextNode(novo_elemento)
+                node.appendChild(textnode)
+                node.style.color = cor
+
+                lista.appendChild(node)
+            })
+        </script>
     </body>
 </html>
